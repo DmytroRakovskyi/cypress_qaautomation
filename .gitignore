@@ -1,0 +1,8 @@
+# ignore vscode settings
+.vscode
+# ignore obsidian settings
+.obsidian
+# ignore node_modules/
+node_modules/
+# ignore screenshots
+cypress/screenshots
