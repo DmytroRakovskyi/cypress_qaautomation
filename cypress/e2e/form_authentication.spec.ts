@@ -1,8 +1,17 @@
-describe('Dropdown', () => {
-    it('should select an option from the dropdown', () => {
-      cy.visit('https://the-internet.herokuapp.com/dropdown');
-      cy.get('#dropdown').select('Option 1').should('have.value', '1');
-      cy.get('#dropdown').select('Option 2').should('have.value', '2');
-    });
+describe('Form Authentication', () => {
+  it('should login with valid credentials', () => {
+    cy.visit('https://the-internet.herokuapp.com/login');
+    cy.get('#username').type('tomsmith');
+    cy.get('#password').type('SuperSecretPassword!');
+    cy.get('.radius').click();
+    cy.get('.flash.success').should('contain', 'You logged into a secure area!');
   });
-  
+
+  it('should fail login with invalid credentials', () => {
+    cy.visit('https://the-internet.herokuapp.com/login');
+    cy.get('#username').type('invalidUser');
+    cy.get('#password').type('invalidPassword');
+    cy.get('.radius').click();
+    cy.get('.flash.error').should('contain', 'Your username is invalid!');
+  });
+});
