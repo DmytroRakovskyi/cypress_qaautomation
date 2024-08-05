@@ -4,7 +4,7 @@ export default defineConfig({
   e2e: {
     setupNodeEvents(on, config) {
     },
-    specPattern: 'cypress/e2e/**/*.spec.ts',
+    specPattern: 'cypress/e2e_trucks/**/*.spec.ts',
     supportFile: false,
   },
 });
